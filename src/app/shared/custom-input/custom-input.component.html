@@ -1,24 +1,12 @@
 <div class="container">
-  <input
-    type="password"
-    [(ngModel)]="value"
+  <app-password-input
     [placeholder]="placeholder"
-    (input)="checkPassword()"
-    name="password"
-  />
-  <div
-    class="strength-section"
-    id="section1"
-    [ngStyle]="{ 'background-color': section1Color }"
-  ></div>
-  <div
-    class="strength-section"
-    id="section2"
-    [ngStyle]="{ 'background-color': section2Color }"
-  ></div>
-  <div
-    class="strength-section"
-    id="section3"
-    [ngStyle]="{ 'background-color': section3Color }"
-  ></div>
+    [(value)]="value"
+  ></app-password-input>
+  <ng-container *ngFor="let section of passwordStrengthSections">
+    <div
+      class="strength-section"
+      [ngStyle]="{ 'background-color': section.color }"
+    ></div>
+  </ng-container>
 </div>
